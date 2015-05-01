@@ -9,12 +9,13 @@ from .forms import LoginForm
 @myApp.route('/')
 @myApp.route('/index')
 def index():
+    userName = 'DaWeish'
     events = [
     {'title' : 'Tuesday Movie Night', 'media' : 'The Imitation Game'},
     {'title' : 'Hump Day Celebration', 'media' : 'Shawshank Redemption'}
     ]
 
-    return render_template('index.html', title='Home', events=events)
+    return render_template('index.html', title='Home', userName = userName, events=events)
 
 @myApp.route('/login', methods = ['GET', 'POST'])
 def login():

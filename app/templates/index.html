@@ -1,10 +1,22 @@
 {% extends "header.html" %}
 {% block content %}
 
-  <h1> Hello </h1>
-  {% for event in events %}
-  <div>
-    <p>{{ event.title }} will be showing {{ event.media }}</p>
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Watch with {{ userName }}</h1>
+      <p>Find great shows, movies, and more to watch with new friends or old pals.</p>
+    </div>
   </div>
-  {% endfor %}
+
+  <div class="container">
+    <h3> What to watch </h3>
+    <hr>
+    {% for event in events %}
+    <div class="panel panel-danger">
+      <div class="panel-heading">{{ event.title }}</div>
+      <div class="panel-body">Showing {{ event.media }}</div>
+    </div>
+    {% endfor %}
+    <hr>
+  </div>
 {% endblock %}
