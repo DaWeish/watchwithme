@@ -1,11 +1,10 @@
-<html>
-  <head>
-    {% if title %}
-    <title>{{ title }} - Watch With Me</title>
-    {% else %}
-    <title>Watch with Me</title>
-  </head>
-  <body>
-    <h1> Hello </h1>
-  </body>
-</html>
+{% extends "header.html" %}
+{% block content %}
+
+  <h1> Hello </h1>
+  {% for event in events %}
+  <div>
+    <p>{{ event.title }} will be showing {{ event.media }}</p>
+  </div>
+  {% endfor %}
+{% endblock %}
