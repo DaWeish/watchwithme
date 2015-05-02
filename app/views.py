@@ -27,3 +27,7 @@ def login():
         return redirect('/index')
 
     return render_template('login.html', title="Sign In", form=form)
+
+@myApp.route('/newEvent', methods = ['GET', 'POST'])
+def createEvent():
+    return render_template('newevent.html', title="Create Event")
