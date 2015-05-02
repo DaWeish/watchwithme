@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request, make_response
 from app import myApp
 from .forms import LoginForm
 
@@ -9,10 +9,11 @@ from .forms import LoginForm
 @myApp.route('/')
 @myApp.route('/index')
 def index():
-    userName = 'DaWeish'
+
+    userName = request.cookies.get('username')
     events = [
-    {'title' : 'Tuesday Movie Night', 'media' : 'The Imitation Game'},
-    {'title' : 'Hump Day Celebration', 'media' : 'Shawshank Redemption'}
+    {'title' : 'Tuesday Movie Night', 'media' : 'The Imitation Game', 'owner': 'Connor', 'attending': 20},
+    {'title' : 'Hump Day Celebration', 'media' : 'Shawshank Redemption', 'owner': 'Dillon', 'attending': 15}
     ]
 
     return render_template('index.html', title='Home', userName = userName, events=events)
@@ -24,7 +25,9 @@ def login():
     if form.validate_on_submit():
         flash('Login requested for Username="%s", Password=%s' %
               (form.username.data, form.password.data))
-        return redirect('/index')
+        response = make_response(redirect('/index'))
+        response.set_cookie('username', form.username.data)
+        return response
 
     return render_template('login.html', title="Sign In", form=form)
 

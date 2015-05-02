@@ -21,8 +21,10 @@
           <div class="panel-heading">
             <h4>{{ event.title }}</h4>
           </div>
-          <div class="panel-body">
-            <p>Showing {{ event.media }}</p>
+
+          <div class="list-group">
+            <a href="#" class="list-group-item">Showing {{ event.media }}</a>
+            <a href="#" class="list-group-item">Attending <span class="badge">{{ event.attending }}</span></a>
           </div>
         </div>
       </div>

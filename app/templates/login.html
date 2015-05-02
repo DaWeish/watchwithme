@@ -1,20 +1,38 @@
 {% extends "header.html" %}
 {% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Sign In</h1>
 
-  <h1>Sign In</h1>
-  <form action="" method="post" name="login">
-    {{ form.hidden_tag() }}
-    <p>
-      Enter your username:<br>
-      {{ form.username(size=80) }}<br>
-    </p>
-    <p>
-      Enter your password:<br>
-      {{ form.password(size=80) }}<br>
-    </p>
-    <p>
-      <input type="submit" value="Sign In">
-    </p>
-  </form>
+        <form action="" method="post" name="login">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+            <label for="inputUserName">Username</label><br>
+            {{ form.username(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label><br>
+            {{ form.password(size=60) }}
+          </div>
+          <input type="submit" value="Sign In" class="btn btn-danger">
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h1>Sign Up</h1>
+
+        <form action="" method="post" name="signup">
+          {{ form.hidden_tag() }}
+          <div class="form-group">
+            <label for="inputUserName">Username</label><br>
+            {{ form.username(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">Password</label><br>
+            {{ form.password(size=60) }}
+          </div>
+          <input type="submit" value="Sign In" class="btn btn-danger">
+        </form>
+      </div>
 
 {% endblock %}
