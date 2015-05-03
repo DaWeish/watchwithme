@@ -3,32 +3,44 @@
 
   <div class="jumbotron">
     <div class="container">
-      <h1>Watch with <strong> {{ userName }} </strong> </h1>
-      <p>Find great shows, movies, and more to watch with new friends or old pals.</p>
+      {% if session.userName %}
+        <h1>Watch with <strong> {{ session.userName }} </strong> </h1>
+        <p>Find great shows, movies, and more to watch with new friends or old pals.</p>
+      {% else %}
+        <h1>Come Watch with <strong>Me</strong></h1>
+        <p>Looking for something to watch and some people to watch it with? Then you've come to the right place.
+          Watch with me is the perfect site to figure out what to watch when you're bored. See what other people are
+          viewing to get inspiration or join them for a great ice-breaking event.
+        </P>
+        <p><a href="/register" class="btn btn-danger">Join Now</a></p>
+      {% endif %}
     </div>
   </div>
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h3>Events you are attending:</h3>
-      </div>
-    </div>
-    <div class="row">
-    {% for event in events %}
-      <div class="col-md-3 col-xs-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4>{{ event.title }}</h4>
-          </div>
-
-          <div class="list-group">
-            <a href="#" class="list-group-item">Showing {{ event.media }}</a>
-            <a href="#" class="list-group-item">Attending <span class="badge">{{ event.attending }}</span></a>
-          </div>
+    {% if session.userName %}
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Events you are attending:</h3>
         </div>
       </div>
-    {% endfor %}
-    <hr>
+      <div class="row">
+        {% for event in events %}
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4>{{ event.title }}</h4>
+              </div>
+
+              <div class="list-group">
+                <a href="#" class="list-group-item">Showing {{ event.media }}</a>
+                <a href="#" class="list-group-item">Attending <span class="badge">{{ event.attending }}</span></a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <hr>
+      </div>
+    {% endif %}
   </div>
 {% endblock %}

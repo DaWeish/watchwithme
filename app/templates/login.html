@@ -2,37 +2,31 @@
 {% block content %}
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-12">
         <h1>Sign In</h1>
 
-        <form action="" method="post" name="login">
-          {{ form.hidden_tag() }}
+        <form action="/login" method="post" name="login">
           <div class="form-group">
-            <label for="inputUserName">Username</label><br>
-            {{ form.username(size=60) }}
+            <label for="inputUserName">{{ login.username.label }}</label><br>
+            {{ login.username(size=60) }}
           </div>
           <div class="form-group">
             <label for="inputPassword">Password</label><br>
-            {{ form.password(size=60) }}
+            {{ login.password(size=60) }}
           </div>
           <input type="submit" value="Sign In" class="btn btn-danger">
         </form>
       </div>
-      <div class="col-md-6">
-        <h1>Sign Up</h1>
-
-        <form action="" method="post" name="signup">
-          {{ form.hidden_tag() }}
-          <div class="form-group">
-            <label for="inputUserName">Username</label><br>
-            {{ form.username(size=60) }}
+      <div class="col-md-6 col-xs-12"> 
+        <div class="container">
+          <div class="jumbotron">
+            <h1>Want to Join?</h1>
+            <p>Creating a new account is easy. Just click the Sign Up button to get started.</p>
+            <a href="/register" class="btn btn-danger">Sign Up</a>
           </div>
-          <div class="form-group">
-            <label for="inputPassword">Password</label><br>
-            {{ form.password(size=60) }}
-          </div>
-          <input type="submit" value="Sign In" class="btn btn-danger">
-        </form>
+        </div>
       </div>
+    </div>
+  </div>
 
 {% endblock %}

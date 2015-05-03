@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Sign Up</h1>
+        <form action="/register" method="post" name="register">
+          <div class="form-group">
+            <label for="inputUserName">{{ register.username.label }}</label><br>
+            {{ register.username(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputPassword">{{ register.password.label }}</label><br>
+            {{ register.password(size=60) }}
+          </div>
+          <input type="submit" value="Sign Up" class="btn btn-danger">
+        </form>
+      </div>
+      <div class="col-md-6"> 
+      
+      </div>
+
+{% endblock %}
