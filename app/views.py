@@ -7,12 +7,12 @@ from .forms import LoginForm, RegisterForm
 # can use int, float, and path as convertor (path accepts slashes)
 # urls endind in / will work both with and without slash, without slash, it has to match
 
-#mysql = MySQL()
-#myApp.config['MYSQL_DATABASE_USER'] = 'root'
-#myApp.config['MYSQL_DATABASE_PASSWORD'] = 'Comawa15'
-#myApp.config['MYSQL_DATABASE_DB'] = 'watchwithme'
-#myApp.config['MYSQL_DATABASE_HOST'] = 'localhost'
-#mysql.init_app(myApp)
+mysql = MySQL()
+myApp.config['MYSQL_DATABASE_USER'] = 'root'
+myApp.config['MYSQL_DATABASE_PASSWORD'] = 'Comawa15'
+myApp.config['MYSQL_DATABASE_DB'] = 'watchWithMe'
+myApp.config['MYSQL_DATABASE_HOST'] = 'localhost'
+mysql.init_app(myApp)
 
 # cursor = mysql.connect().cursor()
 # cursor.execute("SQL STATEMENT GOES HERE")
