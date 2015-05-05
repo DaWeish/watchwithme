@@ -2,7 +2,33 @@
 {% block content %}
 
   <div class="container">
-    <h1>Create a new Event</h1>
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Create a New Event</h1>
+        <form action="/newEvent" method="post" name="event">
+          <div class="form-group">
+            <label for="inputEventName">{{ event.eventname.label }}</label><br>
+            {{ event.eventname(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputEventTime">{{ event.eventtime.label }}</label><br>
+            {{ event.eventtime(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputEventDate">{{ event.eventdate.label }}</label><br>
+            {{ event.eventdate(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputMediaName">{{ event.medianame.label }}</label><br>
+            {{ event.medianame(size=60) }}
+          </div>
+          <div class="form-group">
+            <label for="inputMediaGenre">{{ event.mediagenre.label }}</label><br>
+            {{ event.mediagenre(size=60) }}
+          </div>
+          <input type="submit" value="Create Event" class="btn btn-danger">
+        </form>
+      </div>
   </div>
 
 {% endblock %}

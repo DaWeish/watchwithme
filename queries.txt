@@ -1,0 +1,76 @@
+List of events that a specific person is attending-done
+
+select E.name
+from Attend A, Event E
+where A.EID = E.EID and A.PID = 123456789;
+
+select E.name
+from Attend A, Event E
+where A.EID = E.EID and A.PID = 987654321;
+
+select E.name
+from Attend A, Event E
+where A.EID = E.EID and A.PID = 456123789;
+
+
+
+list of all events-done
+
+select E.name
+from Event E
+where E.EID = E.EID;
+
+
+list of all people attending an event-done
+
+select P.First,P.Last
+from Person P, Attend A
+where P.PID = A.PID and A.EID = 00000001;
+
+select P.First,P.Last
+from Person P, Attend A
+where P.PID = A.PID and A.EID = 00000002;
+
+select P.First,P.Last
+from Person P, Attend A
+where P.PID = A.PID and A.EID = 00000003;
+
+
+
+List of locations holding events -done
+
+select L.Address
+from Location L, At A
+where L.LID = A.LID;
+
+
+List of events at a specific location -done
+
+select L.Address
+from Location L, At A
+where L.LID = A.LID and A.EID = 00000001;
+
+select L.Address
+from Location L, At A
+where L.LID = A.LID and A.EID = 00000002;
+
+select L.Address
+from Location L, At A
+where L.LID = A.LID and A.EID = 00000003;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

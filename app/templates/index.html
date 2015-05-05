@@ -25,16 +25,63 @@
         </div>
       </div>
       <div class="row">
-        {% for event in events %}
+        {% for event in attendingEvents %}
           <div class="col-md-3 col-xs-6">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h4>{{ event.title }}</h4>
+                <h4><a href="/attend?EID={{ event.Event }}">{{ event.Name }}</a></h4>
               </div>
 
               <div class="list-group">
-                <a href="#" class="list-group-item">Showing {{ event.media }}</a>
-                <a href="#" class="list-group-item">Attending <span class="badge">{{ event.attending }}</span></a>
+                <a href="#" class="list-group-item">Showing {{ event.Title }}</a>
+                <a href="#" class="list-group-item">On {{ event.Date }} at {{ event.Time }}</a>
+                <a href="#" class="list-group-item">Genre {{ event.Genre }}</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Events you Created:</h3>
+        </div>
+      </div>
+      <div class="row">
+        {% for event in createdEvents %}
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4><a href="/attend?EID={{ event.Event }}">{{ event.Name }}</a></h4>
+              </div>
+
+              <div class="list-group">
+                <a href="#" class="list-group-item">Showing {{ event.Title }}</a>
+                <a href="#" class="list-group-item">On {{ event.Date }} at {{ event.Time }}</a>
+                <a href="#" class="list-group-item">Genre {{ event.Genre }}</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        <hr>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>All Events:</h3>
+        </div>
+      </div>
+      <div class="row">
+        {% for event in allEvents %}
+          <div class="col-md-3 col-xs-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4><a href="/attend?EID={{ event.Event }}">{{ event.Name }}</a></h4>
+              </div>
+
+              <div class="list-group">
+                <a href="#" class="list-group-item">Showing {{ event.Title }}</a>
+                <a href="#" class="list-group-item">On {{ event.Date }} at {{ event.Time }}</a>
+                <a href="#" class="list-group-item">Genre {{ event.Genre }}</a>
               </div>
             </div>
           </div>

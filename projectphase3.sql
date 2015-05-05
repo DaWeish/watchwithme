@@ -1,25 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 create table Person ( PID int, First varchar(15), Last varchar(15), age int, Gender char(1), 
 Username varchar(15), Password varchar(15), Favorite_Movie varchar(20), 
 Favorite_Director varchar(20), Favorite_Actor varchar(20), Favorite_Genre varchar(15),
@@ -52,7 +31,15 @@ create table Series (MID int references Media(MID), Episodes int, primary key(MI
 
 create table Episodes (Name varchar(50), Length int, Season int, primary key(Name));
 
+create table Attend( PID int references Person(PID), EID int references Event(EID));
 
+create table Make_Event(PID int references Person(PID), EID int references Event(EID));
+
+create table Has(FID int references Food(FID),EID int references Event(EID));
+
+create table At(LID int references Location(LID), EID int references Event(EID));
+
+create table Friend(PID int references Person(PID),PID1 int references Person(PID));
 
 
 
@@ -160,20 +147,6 @@ insert into Episodes values('Dead Mans Chest',151,2);
 insert into Episodes values('At Worlds End',169,3);
 insert into Episodes values('On Stranger Tides',136,4);
 
-select * from Person;
-select * from Location;
-select * from Location_2;
-select * from Rate;
-select * from Rate_2;
-select * from Rate_3;
-select * from Event;
-select * from Serve;
-select * from Food;
-select * from Media;
-select * from Media_2;
-select * from Movie;
-select * from Series;
-select * from Episodes;
 
 drop table Person restrict;
 drop table Location restrict;
@@ -182,12 +155,18 @@ drop table Rate restrict;
 drop table Rate_2 restrict;
 drop table Rate_3 restrict;
 drop table Event restrict;
-drop table Serve restrict;
+drop table serve restrict;
 drop table Food restrict;
 drop table Media restrict;
 drop table Media_2 restrict;
 drop table Movie restrict;
 drop table Series restrict;
 drop table Episodes restrict;
+drop table Attend restrict;
+drop table Make_Event restrict;
+drop table Has restrict;
+drop table At restrict;
+drop table Friend restrict;
+
 
 
